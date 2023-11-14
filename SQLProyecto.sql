@@ -1435,7 +1435,7 @@ END Control_Ingreso_Empleado;
 
 CREATE OR REPLACE TRIGGER Control_Ingreso_Cliente
 BEFORE INSERT 
-ON Productos
+ON Clientes
 BEGIN
     INSERT INTO ControlClientes VALUES(USER, SYSDATE);
 END Control_Ingreso_Cliente;
@@ -1443,7 +1443,7 @@ END Control_Ingreso_Cliente;
 
 CREATE OR REPLACE TRIGGER Control_Ingreso_Proveedor
 BEFORE INSERT 
-ON Productos
+ON Proveedores
 BEGIN
     INSERT INTO ControlProveedores VALUES(USER, SYSDATE);
 END Control_Ingreso_Proveedor;
@@ -1451,7 +1451,7 @@ END Control_Ingreso_Proveedor;
 
 CREATE OR REPLACE TRIGGER Control_Ingreso_Mascota
 BEFORE INSERT 
-ON Productos
+ON Mascotas
 BEGIN
     INSERT INTO ControlMascotas VALUES(USER, SYSDATE);
 END Control_Ingreso_Mascota;
@@ -1461,5 +1461,81 @@ END Control_Ingreso_Mascota;
 
 
 -------------------------- CURSORES DE LAS TABLAS ------------------------------
+SELECT * FROM PRODUCTOS;
+
+DECLARE
+    CURSOR Cursor_Producto_Precio IS
+        SELECT IdProducto, Precio
+        FROM Productos
+        WHERE Precio >= 10000
+        FOR UPDATE;
+
+    v_id_producto Productos.IdProducto%TYPE;
+    v_precio_anterior Productos.Precio%TYPE;
+BEGIN
+    OPEN Cursor_Producto_Precio;
+    LOOP
+        FETCH Cursor_Producto_Precio INTO v_id_producto, v_precio_anterior;
+        EXIT WHEN Cursor_Producto_Precio%NOTFOUND;
+
+        UPDATE Productos
+        SET Precio = Precio - 500
+        WHERE CURRENT OF Cursor_Producto_Precio;
+
+        DBMS_OUTPUT.PUT_LINE('Producto ID: ' || v_id_producto || ', Precio anterior: ' || v_precio_anterior || ', Precio actualizado.');
+    END LOOP;
+    CLOSE Cursor_Producto_Precio;
+END;
+/
+
+DECLARE
+    CURSOR Cursor_Empleado_Puesto IS
+        SELECT IdEmpleado, NombreEmpleado, Puesto
+        FROM Empleados
+        WHERE Puesto = NULL
+        FOR UPDATE;
+
+    v_id_empleado Empleados.IdEmpleado%TYPE;
+    v_nombre_empleado Empleados.NombreEmpleado%TYPE;
+    v_puesto_anterior Empleados.Puesto%TYPE;
+BEGIN
+    OPEN Cursor_Empleado_Puesto;
+    LOOP
+        FETCH Cursor_Empleado_Puesto INTO v_id_empleado, v_nombre_empleado, v_puesto_anterior;
+        EXIT WHEN Cursor_Empleado_Puesto%NOTFOUND;
+
+        -- Realizar operaciones con los datos del empleado
+        UPDATE Empleados
+        SET Puesto = 'RECEPCION'
+        WHERE CURRENT OF Cursor_Empleado_Puesto;
+
+        DBMS_OUTPUT.PUT_LINE('Empleado ID: ' || v_id_empleado || ', Nombre: ' || v_nombre_empleado || ', Puesto anterior: ' || v_puesto_anterior || ', Puesto actualizado.');
+    END LOOP;
+    CLOSE Cursor_Empleado_Puesto;
+END;
+/
+
+DECLARE
+    CURSOR Cursor_Cliente_Correo IS
+        SELECT IdCliente, NombreCliente, ApellidoCliente
+        FROM Clientes
+        WHERE CorreoCliente IS NOT NULL
+        FOR UPDATE;
+
+    v_id_cliente Clientes.IdCliente%TYPE;
+    v_nombre_cliente Clientes.NombreCliente%TYPE;
+    v_apellido_cliente Clientes.ApellidoCliente%TYPE;
+BEGIN
+    OPEN Cursor_Cliente_Correo;
+    LOOP
+        FETCH Cursor_Cliente_Correo INTO v_id_cliente, v_nombre_cliente, v_apellido_cliente;
+        EXIT WHEN Cursor_Cliente_Correo%NOTFOUND;
+
+
+        DBMS_OUTPUT.PUT_LINE('Cliente ID: ' || v_id_cliente || ', Nombre: ' || v_nombre_cliente || ', Apellido: ' || v_apellido_cliente);
+    END LOOP;
+    CLOSE Cursor_Cliente_Correo;
+END;
+/
 
 
