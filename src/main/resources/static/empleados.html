@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados de Witty's</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 30px;
+            font-family: 'Arial', sans-serif;
+            background-color: beige;
+            color: #001F3F; 
+        }
+
+        h2 {
+            color: #800000; 
+        }
+
+        #empleadosInfo {
+            background-color: #F2F2F2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .empleadoBox {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #001F3F; 
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .empleadoBox p {
+            margin: 10px 0;
+        }
+
+        .botonesEmpleado {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .boton {
+            padding: 5px 10px;
+            font-size: 12px;
+            background-color: #001F3F; 
+            color: #FFFFFF; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background-color: #004080; 
+        }
+
+        #regresarBtn {
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #001F3F; 
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Empleados de Witty's</h2>
+
+    <div id="empleadosInfo">
+        <div class="empleadoBox">
+            <div class="botonesEmpleado">
+                <button class="boton" onclick="editarEmpleado(1)">Editar</button>
+                <button class="boton" onclick="eliminarEmpleado(1)">Eliminar</button>
+            </div>
+            <p><strong>ID:</strong> 001</p>
+            <p><strong>Nombre:</strong> Juan Pérez</p>
+            <p><strong>Puesto:</strong> Gerente de Tienda</p>
+            <p><strong>Salario:</strong> $40,000</p>
+        </div>
+
+        <div class="empleadoBox">
+            <div class="botonesEmpleado">
+                <button class="boton" onclick="editarEmpleado(2)">Editar</button>
+                <button class="boton" onclick="eliminarEmpleado(2)">Eliminar</button>
+            </div>
+            <p><strong>ID:</strong> 002</p>
+            <p><strong>Nombre:</strong> María González</p>
+            <p><strong>Puesto:</strong> Asistente de Ventas</p>
+            <p><strong>Salario:</strong> $25,000</p>
+        </div>
+
+        <div class="empleadoBox">
+            <div class="botonesEmpleado">
+                <button class="boton" onclick="editarEmpleado(3)">Editar</button>
+                <button class="boton" onclick="eliminarEmpleado(3)">Eliminar</button>
+            </div>
+            <p><strong>ID:</strong> 003</p>
+            <p><strong>Nombre:</strong> Carlos Rodríguez</p>
+            <p><strong>Puesto:</strong> Encargado de Almacén</p>
+            <p><strong>Salario:</strong> $30,000</p>
+        </div>
+
+        <div class="empleadoBox">
+            <div class="botonesEmpleado">
+                <button class="boton" onclick="editarEmpleado(4)">Editar</button>
+                <button class="boton" onclick="eliminarEmpleado(4)">Eliminar</button>
+            </div>
+            <p><strong>ID:</strong> 004</p>
+            <p><strong>Nombre:</strong> Ana López</p>
+            <p><strong>Puesto:</strong> Asistente de Ventas</p>
+            <p><strong>Salario:</strong> $25,000</p>
+        </div>
+
+        <div class="empleadoBox">
+            <div class="botonesEmpleado">
+                <button class="boton" onclick="editarEmpleado(5)">Editar</button>
+                <button class="boton" onclick="eliminarEmpleado(5)">Eliminar</button>
+            </div>
+            <p><strong>ID:</strong> 005</p>
+            <p><strong>Nombre:</strong> Alberto Mendoza</p>
+            <p><strong>Puesto:</strong> Cajero</p>
+            <p><strong>Salario:</strong> $28,000</p>
+        </div>
+    </div>
+
+    <div id="regresarBtn">
+        <a href="index.html">&lt;&lt; Regresar a la página principal</a>
+    </div>
+
+    <script>
+        function editarEmpleado(id) {
+            alert("Función para editar empleado con ID " + id);
+        }
+
+        function eliminarEmpleado(id) {
+            alert("Función para eliminar empleado con ID " + id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENTAS de Witty's</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 30px;
+            font-family: 'Arial', sans-serif;
+            background-color: beige;
+            color: #001F3F; 
+        }
+
+        h2 {
+            color: #800000; 
+        }
+
+        #ventasInfo {
+            background-color: #F2F2F2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .ventaBox {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #001F3F; 
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .ventaBox p {
+            margin: 10px 0;
+        }
+
+        .botonesVenta {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .boton {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #001F3F; 
+            color: #FFFFFF; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background-color: #004080; 
+        }
+
+        #regresarBtn {
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #001F3F; 
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>VENTAS de Witty's</h2>
+
+    <div id="ventasInfo">
+        <div class="ventaBox">
+            <p><strong>Producto:</strong> Comida para gatos premium</p>
+            <p><strong>Cantidad vendida:</strong> 50 unidades</p>
+            <p><strong>Precio unitario:</strong> $15.99</p>
+
+            <div class="botonesVenta">
+                <button class="boton" onclick="agregarVenta()">Agregar Nueva Venta</button>
+                <button class="boton" onclick="eliminarVenta()">Eliminar Venta</button>
+                <button class="boton" onclick="editarVenta()">Editar Venta</button>
+            </div>
+        </div>
+
+        <div class="ventaBox">
+            <p><strong>Producto:</strong> Juguetes para perros</p>
+            <p><strong>Cantidad vendida:</strong> 30 unidades</p>
+            <p><strong>Precio unitario:</strong> $12.99</p>
+
+            <div class="botonesVenta">
+                <button class="boton" onclick="agregarVenta()">Agregar Nueva Venta</button>
+                <button class="boton" onclick="eliminarVenta()">Eliminar Venta</button>
+                <button class="boton" onclick="editarVenta()">Editar Venta</button>
+            </div>
+        </div>
+
+        <div class="ventaBox">
+            <p><strong>Producto:</strong> Camas acolchadas para mascotas</p>
+            <p><strong>Cantidad vendida:</strong> 20 unidades</p>
+            <p><strong>Precio unitario:</strong> $29.99</p>
+
+            <div class="botonesVenta">
+                <button class="boton" onclick="agregarVenta()">Agregar Nueva Venta</button>
+                <button class="boton" onclick="eliminarVenta()">Eliminar Venta</button>
+                <button class="boton" onclick="editarVenta()">Editar Venta</button>
+            </div>
+        </div>
+
+       
+
+    </div>
+
+    <div id="regresarBtn">
+        <a href="index.html">&lt;&lt; Regresar a la página principal</a>
+    </div>
+
+    <script>
+        function agregarVenta() {
+            alert("Función para agregar nueva venta");
+        }
+
+        function eliminarVenta() {
+            alert("Función para eliminar venta");
+        }
+
+        function editarVenta() {
+            alert("Función para editar venta");
+        }
+    </script>
+</body>
+</html>
